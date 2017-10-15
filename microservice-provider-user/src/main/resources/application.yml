@@ -1,3 +1,4 @@
+
 server:
   port: 7900
 spring:
@@ -10,11 +11,20 @@ spring:
     platform: h2
     schema: classpath:schema.sql
     data: classpath:data.sql
-#��ʾsql��䣬��ӡ������
+  application:
+    name: microservice-provider-user   #指定应用的名称
+#输出sql的查询参数值
 logging:
   level: INFO
-    root:INFO
-    org.hibernate:INFO
-    org.hiberEnate.type.descriptor.sql.BasicBinder:TRACE
-    org.hibernate.type.descriptor.sql.BasicExtractor:TRAC
-    com.yhy:DEBUG
+    root: INFO
+    org.hibernate: INFO
+    org.hiberEnate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRAC
+    com.yhy: DEBUG
+#将微服务注册到eureka服务中心
+eureka:
+  client:
+    service-url:
+     defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true #在服务中心显示ip地址
