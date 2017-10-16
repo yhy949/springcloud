@@ -1,4 +1,3 @@
-
 server:
   port: 7900
 spring:
@@ -16,15 +15,11 @@ spring:
 #输出sql的查询参数值
 logging:
   level: INFO
-    root: INFO
-    org.hibernate: INFO
-    org.hiberEnate.type.descriptor.sql.BasicBinder: TRACE
-    org.hibernate.type.descriptor.sql.BasicExtractor: TRAC
-    com.yhy: DEBUG
 #将微服务注册到eureka服务中心
 eureka:
   client:
     service-url:
-     defaultZone: http://localhost:8761/eureka
+     defaultZone: http://user:pass123@localhost:8761/eureka
   instance:
     prefer-ip-address: true #在服务中心显示ip地址
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}

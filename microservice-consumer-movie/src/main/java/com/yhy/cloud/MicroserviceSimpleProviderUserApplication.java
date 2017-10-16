@@ -12,7 +12,7 @@ public class MicroserviceSimpleProviderUserApplication {
 
 	@Bean
 	public RestTemplate restTemplate(){
-		return  new RestTemplate();
+		return new RestTemplate();
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(MicroserviceSimpleProviderUserApplication.class, args);
